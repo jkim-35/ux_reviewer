@@ -1,0 +1,243 @@
+/* ============================================================
+   SynMax Design System — Colors & Type
+   Multi-brand foundation: Theia, Hyperion, BasinIq, Agentic
+   Source of truth: Figma "Theia in-progress.fig" / Design-System page
+   ============================================================ */
+
+/* ---------- Webfonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto+Mono:wght@500&family=Manrope:wght@400;500;600;700;800&family=Zen+Dots&display=swap');
+/* Note: Graphie is licensed (Schizotype). Substituted with Manrope/Inter where used.
+   Flag for the user to provide Graphie .ttf in /fonts if needed. */
+
+:root {
+  /* ============================================================
+     PRIMITIVE GLOBAL — shared cross-brand neutrals
+     ============================================================ */
+  --neutral-1: #F2F2F2;  --neutral-2: #E5E5E5;  --neutral-3: #CCCCCC;
+  --neutral-4: #B2B2B2;  --neutral-5: #999999;  --neutral-6: #808080;
+  --neutral-7: #4D4D4D;  --neutral-8: #333333;  --neutral-9: #000000;
+
+  --slate-0: #F0F1F2;    --slate-1: #E1E2E5;    --slate-2: #C5C6CF;
+  --slate-3: #A6ABB7;    --slate-4: #888F9E;    --slate-5: #6F7581;
+  --slate-6: #595E69;    --slate-7: #424750;    --slate-8: #2F3038;
+  --slate-9: #1A1C1F;
+
+  --navy-1: #CBD1E6;     --navy-2: #9BA8CF;     --navy-3: #697DB4;
+  --navy-4: #495980;     --navy-5: #2B354F;     --navy-6: #232C42;
+  --navy-7: #1A2133;     --navy-8: #131928;     --navy-9: #0A0E19;
+
+  --slate-purple-1: #E8E7EB;  --slate-purple-2: #D0CFD8;  --slate-purple-3: #B9B8C4;
+  --slate-purple-4: #A1A0B1;  --slate-purple-5: #8A889D;  --slate-purple-6: #727089;
+  --slate-purple-7: #434162;  --slate-purple-8: #2C294F;  --slate-purple-9: #14113B;
+
+  /* ============================================================
+     THEIA — Maritime intelligence (DARK, fully polished)
+     ============================================================ */
+  /* Steel — primary surface scale */
+  --theia-steel-1: #B7C2D9; --theia-steel-2: #95A3C5; --theia-steel-3: #7B88B6;
+  --theia-steel-4: #6972A7; --theia-steel-5: #5D6398; --theia-steel-6: #50537D;
+  --theia-steel-7: #393C56; --theia-steel-8: #24263C; --theia-steel-9: #181926;
+
+  /* Blue — primary brand / interactive */
+  --theia-blue-1: #CCE2F7; --theia-blue-2: #B2D3F3; --theia-blue-3: #66A7E7;
+  --theia-blue-4: #3389DF; --theia-blue-5: #006CD7; --theia-blue-6: #0056AC;
+  --theia-blue-7: #004181; --theia-blue-8: #002B56; --theia-blue-9: #002041;
+
+  /* Red — error */
+  --theia-red-1: #FDDDDB; --theia-red-2: #FCBAB6; --theia-red-3: #FA9892;
+  --theia-red-4: #F9756D; --theia-red-5: #F75349; --theia-red-6: #CA433B;
+  --theia-red-7: #9D332C; --theia-red-8: #71221E; --theia-red-9: #5A1A17;
+
+  /* Green — success */
+  --theia-green-1: #D5DAE8; --theia-green-2: #A4E9C4; --theia-green-3: #77DEA6;
+  --theia-green-4: #49D389; --theia-green-5: #1CC86B; --theia-green-6: #16A056;
+  --theia-green-7: #117840; --theia-green-8: #0B502B; --theia-green-9: #083C20;
+
+  /* Yellow — warning */
+  --theia-yellow-1: #FFF5DE; --theia-yellow-2: #FFECBE; --theia-yellow-3: #FFE29D;
+  --theia-yellow-4: #FFD97D; --theia-yellow-5: #FFCF5C; --theia-yellow-6: #D6AD4A;
+  --theia-yellow-7: #AD8B37; --theia-yellow-8: #856825; --theia-yellow-9: #70571C;
+
+  /* THEIA semantic tokens */
+  --theia-bg:           #181926;
+  --theia-bg-secondary: #24263C;
+  --theia-bg-tertiary:  #2D2F4A;
+  --theia-border:       #393C56;
+  --theia-border-subtle:#2D2F4A;
+  --theia-text:         #FFFFFF;
+  --theia-text-secondary:#888F9E;
+  --theia-text-tertiary:#6F7581;
+  --theia-primary:      #006CD7;  /* CTA blue */
+  --theia-primary-hover:#3389DF;
+  --theia-primary-active:#0056AC;
+  --theia-error:        #F75349;
+  --theia-warning:      #FFCF5C;
+  --theia-success:      #1CC86B;
+  --theia-accent-bar:   #006CD7;  /* 6px top header bar */
+
+  /* ============================================================
+     HYPERION — Oil & gas / energy intelligence (DARK)
+     ============================================================ */
+  --hyperion-blue-1: #E9F3FE; --hyperion-blue-2: #D3E6FE; --hyperion-blue-3: #BDDAFD;
+  --hyperion-blue-4: #A7CDFC; --hyperion-blue-5: #7CB5FB; --hyperion-blue-6: #509CF9;
+  --hyperion-blue-7: #2483F8; --hyperion-blue-8: #2076DF; --hyperion-blue-9: #195CAE;
+  --hyperion-blue-10:#12427C;
+
+  --hyperion-cyan-1: #E9FAFF; --hyperion-cyan-7: #00A1C9; --hyperion-cyan-9: #0F718F;
+  --hyperion-orange-5:#FFA268; --hyperion-orange-7:#FC701A; --hyperion-orange-9:#994917;
+  --hyperion-purple-7:#7C84FC; --hyperion-purple-9:#575CB0;
+
+  --hyperion-red-5: #FE8888; --hyperion-red-7: #FF4E4E; --hyperion-red-8: #DC3535;
+  --hyperion-yellow-5:#FFF693; --hyperion-yellow-7: #FCEC38;
+
+  --hyperion-bg:           #181926;
+  --hyperion-bg-secondary: #24263C;
+  --hyperion-border:       #393C56;
+  --hyperion-text:         #FFFFFF;
+  --hyperion-text-secondary:#888F9E;
+  --hyperion-primary:      #2483F8;  /* slightly more vibrant blue than Theia */
+  --hyperion-primary-hover:#509CF9;
+  --hyperion-error:        #FF4E4E;
+  --hyperion-warning:      #FCEC38;
+  --hyperion-success:      #1CC86B;
+  --hyperion-accent-bar:   #25A72C;  /* green top bar in Figma */
+
+  /* ============================================================
+     BASINIQ — Energy basin analytics (assumed sibling of Hyperion;
+     palette inherited until brand provides distinct one — FLAG)
+     ============================================================ */
+  --basiniq-bg:           #181926;
+  --basiniq-bg-secondary: #24263C;
+  --basiniq-border:       #393C56;
+  --basiniq-text:         #FFFFFF;
+  --basiniq-text-secondary:#888F9E;
+  --basiniq-primary:      #FC701A;  /* orange differentiator from Hyperion blue */
+  --basiniq-primary-hover:#FF873D;
+  --basiniq-primary-active:#CC621F;
+  --basiniq-accent-bar:   #FC701A;
+  --basiniq-error:        #F75349;
+  --basiniq-warning:      #FFCF5C;
+  --basiniq-success:      #1CC86B;
+
+  /* ============================================================
+     AGENTIC — Agent-driven product (newest; palette TBD — FLAG)
+     Working assumption: Theia neutrals + purple primary
+     ============================================================ */
+  --agentic-bg:           #131928;  /* navy-8 */
+  --agentic-bg-secondary: #1A2133;
+  --agentic-border:       #434162;
+  --agentic-text:         #FFFFFF;
+  --agentic-text-secondary:#A1A0B1;
+  --agentic-primary:      #7C84FC;  /* hyperion purple-7 */
+  --agentic-primary-hover:#A2A8FF;
+  --agentic-primary-active:#7077E3;
+  --agentic-accent-bar:   #7C84FC;
+  --agentic-error:        #FF4E4E;
+  --agentic-warning:      #FCEC38;
+  --agentic-success:      #1CC86B;
+
+  /* ============================================================
+     TYPOGRAPHY — base
+     ============================================================ */
+  --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'Roboto Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: 'Manrope', 'Inter', sans-serif;     /* substitute for Graphie */
+  --font-impact:  'Zen Dots', 'Inter', sans-serif;    /* hero/splash 220px display */
+
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700; --fw-black: 900;
+
+  /* Type scale — matches Figma usage histogram */
+  --fs-10: 10px; --fs-12: 12px; --fs-13: 13px; --fs-14: 14px;
+  --fs-16: 16px; --fs-18: 18px; --fs-20: 20px; --fs-22: 22px;
+  --fs-24: 24px; --fs-32: 32px; --fs-48: 48px;
+
+  --lh-tight: 1.0;   --lh-snug: 1.2;   --lh-normal: 1.4;   --lh-relaxed: 1.6;
+
+  /* Spacing — 4pt grid */
+  --space-0: 0; --space-1: 4px; --space-2: 8px; --space-3: 12px;
+  --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px;
+  --space-10: 40px; --space-12: 48px; --space-16: 64px;
+
+  /* Radii — Figma confirms 4px is the default for cards/inputs */
+  --radius-xs: 2px; --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px;
+  --radius-xl: 12px; --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 20px rgba(0,0,0,0.25);
+  --shadow-glow-blue: 0 0 0 3px rgba(0,108,215,0.25);
+  --shadow-inset:    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ============================================================
+   Semantic shorthands — default to THEIA (the polished brand)
+   Apply data-brand="hyperion" / "basiniq" / "agentic" on a wrapper
+   to swap the active brand.
+   ============================================================ */
+:root {
+  --bg:             var(--theia-bg);
+  --bg-secondary:   var(--theia-bg-secondary);
+  --bg-tertiary:    var(--theia-bg-tertiary);
+  --border:         var(--theia-border);
+  --border-subtle:  var(--theia-border-subtle);
+  --text:           var(--theia-text);
+  --text-secondary: var(--theia-text-secondary);
+  --text-tertiary:  var(--theia-text-tertiary);
+  --primary:        var(--theia-primary);
+  --primary-hover:  var(--theia-primary-hover);
+  --primary-active: var(--theia-primary-active);
+  --error:          var(--theia-error);
+  --warning:        var(--theia-warning);
+  --success:        var(--theia-success);
+  --accent-bar:     var(--theia-accent-bar);
+}
+
+[data-brand="hyperion"] {
+  --bg: var(--hyperion-bg); --bg-secondary: var(--hyperion-bg-secondary);
+  --border: var(--hyperion-border); --text: var(--hyperion-text);
+  --text-secondary: var(--hyperion-text-secondary);
+  --primary: var(--hyperion-primary); --primary-hover: var(--hyperion-primary-hover);
+  --error: var(--hyperion-error); --warning: var(--hyperion-warning); --success: var(--hyperion-success);
+  --accent-bar: var(--hyperion-accent-bar);
+}
+[data-brand="basiniq"] {
+  --bg: var(--basiniq-bg); --bg-secondary: var(--basiniq-bg-secondary);
+  --border: var(--basiniq-border); --text: var(--basiniq-text);
+  --text-secondary: var(--basiniq-text-secondary);
+  --primary: var(--basiniq-primary); --primary-hover: var(--basiniq-primary-hover);
+  --primary-active: var(--basiniq-primary-active);
+  --error: var(--basiniq-error); --warning: var(--basiniq-warning); --success: var(--basiniq-success);
+  --accent-bar: var(--basiniq-accent-bar);
+}
+[data-brand="agentic"] {
+  --bg: var(--agentic-bg); --bg-secondary: var(--agentic-bg-secondary);
+  --border: var(--agentic-border); --text: var(--agentic-text);
+  --text-secondary: var(--agentic-text-secondary);
+  --primary: var(--agentic-primary); --primary-hover: var(--agentic-primary-hover);
+  --primary-active: var(--agentic-primary-active);
+  --error: var(--agentic-error); --warning: var(--agentic-warning); --success: var(--agentic-success);
+  --accent-bar: var(--agentic-accent-bar);
+}
+
+/* ============================================================
+   Semantic type styles
+   ============================================================ */
+.h1, h1 { font-family: var(--font-sans); font-weight: var(--fw-bold);    font-size: var(--fs-32); line-height: var(--lh-snug);   letter-spacing: -0.01em; color: var(--text); }
+.h2, h2 { font-family: var(--font-sans); font-weight: var(--fw-bold);    font-size: var(--fs-24); line-height: var(--lh-snug);   letter-spacing: -0.01em; color: var(--text); }
+.h3, h3 { font-family: var(--font-sans); font-weight: var(--fw-semibold);font-size: var(--fs-20); line-height: var(--lh-snug);   color: var(--text); }
+.h4, h4 { font-family: var(--font-sans); font-weight: var(--fw-semibold);font-size: var(--fs-18); line-height: var(--lh-snug);   color: var(--text); }
+.h5, h5 { font-family: var(--font-sans); font-weight: var(--fw-semibold);font-size: var(--fs-16); line-height: var(--lh-normal); color: var(--text); }
+.h6, h6 { font-family: var(--font-sans); font-weight: var(--fw-semibold);font-size: var(--fs-14); line-height: var(--lh-normal); color: var(--text); text-transform: uppercase; letter-spacing: 0.04em; }
+
+.body-lg, .p-lg { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-16); line-height: var(--lh-relaxed); color: var(--text); }
+.body, p        { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-14); line-height: var(--lh-relaxed); color: var(--text); }
+.body-sm        { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-12); line-height: var(--lh-normal);  color: var(--text-secondary); }
+.body-xs        { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-10); line-height: var(--lh-normal);  color: var(--text-secondary); letter-spacing: 0.02em; }
+
+.label   { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--fs-12); line-height: var(--lh-normal); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); }
+.caption { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-12); line-height: var(--lh-normal); color: var(--text-secondary); }
+.mono, code, kbd, samp { font-family: var(--font-mono); font-weight: var(--fw-medium); font-size: var(--fs-12); }
+
+.display { font-family: var(--font-impact); font-size: 96px; line-height: 1; letter-spacing: 0.02em; color: var(--text); }
