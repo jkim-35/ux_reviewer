@@ -488,23 +488,41 @@ select option{background:#fff;color:#1A1A1A}
       </div>
 
       <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
-        <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">Prioritized Findings</h2>
-        <p style="font-size:12px;color:var(--text-secondary);margin:0 0 16px"><span style="font-family:var(--font-mono)">{{ findingCount }}</span> findings across <span style="font-family:var(--font-mono)">{{ shotCount }}</span> screens, grouped by severity.</p>
-        <div class="no-print" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;background:var(--bg);border-radius:8px;margin-bottom:20px">
-          <select value="{{ filters.severity }}" onChange="{{ setFSeverity }}" style="height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border);background:var(--bg-secondary);font-size:12px;font-family:inherit;color:var(--text);outline:none">
-            <option value="All">All severities</option><option value="Critical">Critical</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option>
-          </select>
-          <span style="display:inline-flex">{{ screenSelect }}</span>
-          <select value="{{ filters.category }}" onChange="{{ setFCategory }}" style="height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border);background:var(--bg-secondary);font-size:12px;font-family:inherit;color:var(--text);outline:none;max-width:220px">
-            <option value="All">All categories</option><option value="Navigation &amp; wayfinding">Navigation &amp; wayfinding</option><option value="User-task completion">User-task completion</option><option value="Content clarity">Content clarity</option><option value="Information hierarchy">Information hierarchy</option><option value="Consistency &amp; standards">Consistency &amp; standards</option><option value="Interaction feedback &amp; system status">Interaction feedback &amp; system status</option><option value="Error prevention &amp; recovery">Error prevention &amp; recovery</option><option value="Accessibility">Accessibility</option>
-          </select>
-          <select value="{{ filters.source }}" onChange="{{ setFSource }}" style="height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border);background:var(--bg-secondary);font-size:12px;font-family:inherit;color:var(--text);outline:none">
-            <option value="All">All sources</option><option value="Synthetic User">Synthetic User</option><option value="UX Heuristic">UX Heuristic</option><option value="Both">Both</option>
-          </select>
-          <sc-if value="{{ filtersActive }}" hint-placeholder-val="{{ false }}">
-            <button onClick="{{ clearFilters }}" style="background:none;border:none;padding:4px 8px;color:var(--primary);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Clear Filters</button>
-          </sc-if>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+          <div style="min-width:220px">
+            <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">Prioritized Findings</h2>
+            <p style="font-size:12px;color:var(--text-secondary);margin:0"><span style="font-family:var(--font-mono)">{{ findingCount }}</span> findings across <span style="font-family:var(--font-mono)">{{ shotCount }}</span> screens, grouped by severity.</p>
+          </div>
+          <div class="no-print" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end">
+            <select value="{{ filters.severity }}" onChange="{{ setFSeverity }}" style="height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border);background:#fff;font-size:12px;font-family:inherit;color:var(--text);outline:none">
+              <option value="All">All severities</option><option value="Critical">Critical</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option>
+            </select>
+            <span style="display:inline-flex">{{ screenSelect }}</span>
+            <select value="{{ filters.category }}" onChange="{{ setFCategory }}" style="height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border);background:#fff;font-size:12px;font-family:inherit;color:var(--text);outline:none;max-width:200px">
+              <option value="All">All categories</option><option value="Navigation &amp; wayfinding">Navigation &amp; wayfinding</option><option value="User-task completion">User-task completion</option><option value="Content clarity">Content clarity</option><option value="Information hierarchy">Information hierarchy</option><option value="Consistency &amp; standards">Consistency &amp; standards</option><option value="Interaction feedback &amp; system status">Interaction feedback &amp; system status</option><option value="Error prevention &amp; recovery">Error prevention &amp; recovery</option><option value="Accessibility">Accessibility</option>
+            </select>
+            <select value="{{ filters.source }}" onChange="{{ setFSource }}" style="height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border);background:#fff;font-size:12px;font-family:inherit;color:var(--text);outline:none">
+              <option value="All">All sources</option><option value="Synthetic User">Synthetic User</option><option value="UX Heuristic">UX Heuristic</option><option value="Both">Both</option>
+            </select>
+            <sc-if value="{{ filtersActive }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ clearFilters }}" style="background:none;border:none;padding:4px 8px;color:var(--theia-blue-6,#036F84);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Clear Filters</button>
+            </sc-if>
+          </div>
         </div>
+        <sc-if value="{{ hasDist }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:0 0 8px">
+            <div style="display:flex;gap:3px;height:34px">
+              <sc-for list="{{ sevDist }}" as="sd" hint-placeholder-count="4">
+                <button onClick="{{ sd.pick }}" onMouseEnter="{{ sd.enter }}" onMouseLeave="{{ sd.leave }}" title="{{ sd.tip }}" style="{{ sd.style }}"></button>
+              </sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;margin-top:7px;font-size:12px">
+              <span style="color:var(--text-secondary)">{{ sevDistCaption }}</span>
+              <span class="no-print" style="color:var(--text-tertiary,#737373)">Hover to inspect &middot; click to filter</span>
+            </div>
+          </div>
+        </sc-if>
+        <p style="font-size:12px;color:var(--text-tertiary,#737373);line-height:1.5;margin:8px 0 20px">Confidence (0&ndash;1.0) is the AI&rsquo;s own certainty that a finding is real: 0.9+ is directly visible in the screenshots, 0.6&ndash;0.8 is a reasonable inference, below 0.6 is a hypothesis to validate with real users.</p>
         <sc-if value="{{ noFindings }}" hint-placeholder-val="{{ false }}">
           <div style="text-align:center;padding:40px 20px">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-linecap="square" style="margin-bottom:12px"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
@@ -523,15 +541,18 @@ select option{background:#fff;color:#1A1A1A}
               <div style="display:flex;flex-direction:column;gap:10px">
                 <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="2">
                   <div style="background:#fff;border:1px solid rgba(26,26,26,0.12);border-left:3px solid {{ f.sevColor }};border-radius:8px;padding:16px 18px">
-                    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px">
-                      <span style="display:flex;align-items:center;gap:5px;padding:2px 9px;border-radius:4px;font-size:11px;font-weight:600;background:{{ f.sevBg }};color:{{ f.sevColor }}"><span style="width:5px;height:5px;border-radius:50%;background:{{ f.sevColor }}"></span>{{ f.sev }}</span>
-                      <span style="padding:2px 9px;border-radius:4px;border:1px solid var(--border);font-size:11px;color:var(--text-secondary)">{{ f.screen }}</span>
-                      <span style="padding:2px 9px;border-radius:4px;background:rgba(5,159,189,0.15);color:var(--theia-blue-6,#036F84);font-size:11px">{{ f.source }}</span>
-                      <span style="flex:1"></span>
-                      <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary,#737373)">{{ f.id }}</span>
-                      <span style="font-size:11px;color:var(--text-secondary)">Confidence: <span style="font-family:var(--font-mono)">{{ f.confFmt }}</span></span>
+                    <div style="margin-bottom:16px">
+                      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
+                        <span style="font-size:14px;font-weight:700;flex:none">{{ f.id }}</span>
+                        <span style="font-size:14px;font-weight:700">{{ f.title }}</span>
+                      </div>
+                      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                        <span style="display:flex;align-items:center;gap:5px;padding:2px 9px;border-radius:4px;font-size:11px;font-weight:600;background:{{ f.sevBg }};color:{{ f.sevColor }}"><span style="width:5px;height:5px;border-radius:50%;background:{{ f.sevColor }}"></span>{{ f.sev }}</span>
+                        <span style="padding:2px 9px;border-radius:4px;border:1px solid var(--border);font-size:11px;color:var(--text-secondary)">{{ f.screen }}</span>
+                        <span style="padding:2px 9px;border-radius:4px;background:rgba(5,159,189,0.15);color:var(--theia-blue-6,#036F84);font-size:11px">{{ f.source }}</span>
+                        <span title="AI certainty that this finding is real, from 0 to 1" style="padding:2px 9px;border-radius:4px;border:1px solid var(--border);font-size:11px;color:var(--text-secondary)">Confidence <span style="font-family:var(--font-mono)">{{ f.confFmt }}</span></span>
+                      </div>
                     </div>
-                    <div style="font-size:14px;font-weight:700;margin-bottom:10px">{{ f.title }}</div>
                     <div style="margin-bottom:8px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:3px">VISIBLE EVIDENCE</div><div style="font-size:13px;line-height:1.5">{{ f.evidence }}</div></div>
                     <div style="margin-bottom:10px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:3px">USER IMPACT</div><div style="font-size:13px;line-height:1.5">{{ f.impact }}</div></div>
                     <div style="background:rgba(5,159,189,0.08);border:1px solid rgba(5,159,189,0.25);border-radius:8px;padding:10px 12px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--theia-blue-6,#036F84);margin-bottom:3px">RECOMMENDATION</div><div style="font-size:13px;line-height:1.5">{{ f.rec }}</div></div>
@@ -932,6 +953,35 @@ class Component extends DCLogic {
     const journey = (r.journey || []).map((j, i) => ({ ...j, thumb: mkImg(j.src, j.name, 132, 84), noFmt: String(i + 1).padStart(2, '0'), badgeColor: OUT[j.outcome][0], badgeBg: OUT[j.outcome][1], hasFindings: j.findings.length > 0 }));
     const heurRows = (r.heuristics || []).map(h => ({ ...h, pillColor: HST[h.status][0], pillBg: HST[h.status][1] }));
     const recs = (r.recommendations || []).map(rc => ({ ...rc, prioColor: PC[rc.priority][0], prioBg: PC[rc.priority][1] }));
+    // Interactive severity distribution: halftone segments sized by share of
+    // findings. Hover previews the count/percentage; click filters the list.
+    const sevTotal = allFindings.length;
+    const sevDist = ['Critical', 'High', 'Medium', 'Low'].map(sev => {
+      const n = allFindings.filter(x => x.sev === sev).length;
+      if (!n) return null;
+      const pct = Math.round(n / sevTotal * 100);
+      const color = SEVC[sev];
+      const active = fl.severity === sev;
+      const hovered = s.hoverSev === sev;
+      const dim = fl.severity !== 'All' && !active;
+      const vis = active
+        ? 'background-color:' + color
+        : hovered
+          ? 'background-color:' + SEVBG[sev] + ';background-image:radial-gradient(circle, ' + color + ' 55%, transparent 56%);background-size:6px 6px'
+          : 'background-color:#fff;background-image:radial-gradient(circle, ' + color + ' 45%, transparent 46%);background-size:8px 8px';
+      return {
+        label: sev, n, pct,
+        style: 'flex:' + n + ' 1 0%;min-width:34px;border:none;border-radius:6px;cursor:pointer;transition:all 160ms ease;opacity:' + (dim ? '0.35' : '1') + ';' + vis,
+        tip: sev + ' — ' + n + ' finding' + (n > 1 ? 's' : '') + ' (' + pct + '%). Click to filter.',
+        enter: () => this.setState({ hoverSev: sev }),
+        leave: () => this.setState({ hoverSev: null }),
+        pick: () => this.setState(st => ({ filters: { ...st.filters, severity: st.filters.severity === sev ? 'All' : sev } }))
+      };
+    }).filter(Boolean);
+    const hoveredDist = sevDist.find(d => d.label === s.hoverSev);
+    const sevDistCaption = hoveredDist
+      ? hoveredDist.label + ': ' + hoveredDist.n + ' of ' + sevTotal + ' findings (' + hoveredDist.pct + '%)'
+      : sevTotal + ' total — ' + sevDist.map(d => d.n + ' ' + d.label).join(' · ');
     const screenNames = [...new Set(allFindings.map(x => x.screen))];
     const screenSelect = React.createElement('select', {
       value: fl.screen, onChange: e => this.setState(st => ({ filters: { ...st.filters, screen: e.target.value } })),
@@ -969,6 +1019,7 @@ class Component extends DCLogic {
       scoreDeg: sc * 3.6, scoreColor: scoreCol(sc),
       journey, groups, heurRows, recs, obs: r.observations || {},
       findingCount: filtered.length, noFindings: !!s.report && filtered.length === 0,
+      sevDist, sevDistCaption, hasDist: sevTotal > 0,
       filters: fl, screenSelect, setFSeverity: setF('severity'), setFCategory: setF('category'), setFSource: setF('source'),
       filtersActive: Object.values(fl).some(v => v !== 'All'),
       clearFilters: () => this.setState({ filters: { severity: 'All', screen: 'All', category: 'All', source: 'All' } }),
