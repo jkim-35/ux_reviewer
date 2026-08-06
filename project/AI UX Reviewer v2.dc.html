@@ -413,27 +413,26 @@ select option{background:#fff;color:#1A1A1A}
         <button onClick="{{ goHome }}" style-hover="color:var(--text)" style="display:flex;align-items:center;gap:6px;background:none;border:none;padding:0;color:var(--text-secondary);font-size:13px;font-family:inherit;cursor:pointer;transition:color 120ms ease"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M15 18l-6-6 6-6"></path></svg>All Reviews</button>
         <button onClick="{{ downloadPdf }}" style-hover="background:var(--primary-hover)" style="display:flex;align-items:center;gap:7px;background:var(--primary);color:#fff;border:none;height:36px;padding:0 16px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;transition:background 120ms ease"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>Download PDF</button>
       </div>
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;margin-bottom:16px">
-        <div style="flex:1;min-width:260px">
-          <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:8px">UX REVIEW REPORT</div>
-          <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.03em;margin:0 0 16px;line-height:1.2">{{ r.project }}</h1>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 24px">
-            <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">PERSONA</div><div style="font-size:13px;margin-top:2px">{{ rPersona }}</div></div>
-            <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">REVIEW DATE</div><div style="font-family:var(--font-mono);font-size:13px;margin-top:2px">{{ r.date }}</div></div>
-            <div style="grid-column:1/-1"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">USER TASK</div><div style="font-size:13px;margin-top:2px;line-height:1.45">{{ r.task }}</div></div>
-            <div style="grid-column:1/-1"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">METHODS</div><div style="font-size:13px;margin-top:2px">{{ rMethods }}</div></div>
-          </div>
+      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:8px">UX REVIEW REPORT</div>
+        <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.03em;margin:0 0 20px;line-height:1.2">{{ r.project }}</h1>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px 24px">
+          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">PERSONA</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rPersona }}</div></div>
+          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">REVIEW DATE</div><div style="font-family:var(--font-mono);font-size:13px;margin-top:4px">{{ r.date }}</div></div>
+          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">USER TASK</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ r.task }}</div></div>
+          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">METHODS</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rMethods }}</div></div>
         </div>
-        <div style="text-align:center;flex:none">
-          <div style="width:120px;height:120px;border-radius:50%;background:conic-gradient({{ scoreColor }} {{ scoreDeg }}deg, var(--bg-tertiary,#EEEEEE) 0deg);display:flex;align-items:center;justify-content:center;margin:0 auto">
-            <div style="width:96px;height:96px;border-radius:50%;background:var(--bg-secondary);display:flex;flex-direction:column;align-items:center;justify-content:center">
-              <span style="font-family:var(--font-mono);font-size:32px;font-weight:500;line-height:1;color:{{ scoreColor }}">{{ r.score }}</span>
-              <span style="font-size:11px;color:var(--text-secondary);margin-top:3px">/ 100</span>
+        <div style="border-top:1px solid var(--border-subtle,#EEEEEE);margin-top:20px;padding-top:20px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+          <div style="text-align:center;flex:none">
+            <div style="width:120px;height:120px;border-radius:50%;background:conic-gradient({{ scoreColor }} {{ scoreDeg }}deg, var(--bg-tertiary,#EEEEEE) 0deg);display:flex;align-items:center;justify-content:center;margin:0 auto">
+              <div style="width:96px;height:96px;border-radius:50%;background:var(--bg-secondary);display:flex;flex-direction:column;align-items:center;justify-content:center">
+                <span style="font-family:var(--font-mono);font-size:32px;font-weight:500;line-height:1;color:{{ scoreColor }}">{{ r.score }}</span>
+                <span style="font-size:11px;color:var(--text-secondary);margin-top:3px">/ 100</span>
+              </div>
             </div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-top:10px">Overall usability</div>
           </div>
-          <div style="font-size:12px;color:var(--text-secondary);margin-top:10px">Overall usability</div>
-        </div>
-        <div style="width:100%;border-top:1px solid var(--border-subtle,#EEEEEE);margin-top:8px;padding-top:14px">
+          <div style="flex:1;min-width:340px">
           <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-tertiary,#737373);margin-bottom:40px"><span>Worst imaginable</span><span>Best imaginable</span></div>
           <div style="display:flex;gap:6px">
             <sc-for list="{{ scoreZones }}" as="z" hint-placeholder-count="3">
@@ -453,6 +452,7 @@ select option{background:#fff;color:#1A1A1A}
             <span style="flex:6 1 0%;text-align:center">Needs attention &middot; 0&ndash;59</span>
             <span style="flex:2 1 0%;text-align:center">Fair &middot; 60&ndash;79</span>
             <span style="flex:3 1 0%;text-align:center">Strong &middot; 80&ndash;100</span>
+          </div>
           </div>
         </div>
       </div>
