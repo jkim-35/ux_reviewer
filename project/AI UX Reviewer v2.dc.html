@@ -24,7 +24,7 @@ select option{background:#fff;color:#1A1A1A}
 }
 </style>
 </helmet>
-<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--text);--bg:#FFFFFF;--bg-secondary:#F7F7F7;--bg-tertiary:#EFEFEF;--border:#E2E2E2;--border-subtle:#EEEEEE;--text:#1A1A1A;--text-secondary:#6B6B6B;--text-tertiary:#A3A3A3;--warning:#b25f00;--success:#1e8e3e;--error:#D82C2C;--primary:#059FBD;--primary-hover:#0489A6;--font-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;--theia-blue-6:#036F84;--slate-2:#D6D6D6">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--text);--bg:#FFFFFF;--bg-secondary:#FFFFFF;--bg-tertiary:#EFEFEF;--border:#E2E2E2;--border-subtle:#EEEEEE;--text:#1A1A1A;--text-secondary:#6B6B6B;--text-tertiary:#A3A3A3;--warning:#b25f00;--success:#1e8e3e;--error:#D82C2C;--primary:#059FBD;--primary-hover:#0489A6;--font-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;--theia-blue-6:#036F84;--slate-2:#D6D6D6">
   <header class="no-print" style="flex:none;position:sticky;top:0;z-index:50;height:56px;border-bottom:1px solid rgba(26,26,26,0.08);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 24px;background:#ffffff">
     <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;background:none;border:none;padding:0;cursor:pointer;font-family:inherit">
       <span style="width:26px;height:26px;border-radius:8px;background:#059FBD;display:flex;align-items:center;justify-content:center">
@@ -49,7 +49,7 @@ select option{background:#fff;color:#1A1A1A}
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px">
           <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
-            <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:16px">
+            <div style="border-top:2px solid var(--text);padding:14px 0 0">
               <div style="font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:8px">{{ st.label }}</div>
               <div style="display:flex;align-items:baseline;gap:8px">
                 <span style="font-family:var(--font-mono);font-size:24px;font-weight:500;color:{{ st.color }}">{{ st.value }}</span>
@@ -58,7 +58,7 @@ select option{background:#fff;color:#1A1A1A}
             </div>
           </sc-for>
         </div>
-        <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;overflow:hidden">
+        <div style="border-top:1px solid var(--border)">
           <div style="display:grid;grid-template-columns:64px 1.6fr 2fr 110px 150px 170px 70px;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);font-size:13px;font-weight:500;color:var(--text-secondary)">
             <span>ID</span><span>Project</span><span>User Task</span><span>Date</span><span>Methods</span><span>Findings</span><span style="text-align:right">Score</span>
           </div>
@@ -92,7 +92,7 @@ select option{background:#fff;color:#1A1A1A}
       </sc-if>
       <sc-if value="{{ noHistory }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;align-items:center;justify-content:center;min-height:60vh">
-          <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:48px;max-width:520px;text-align:center">
+          <div style="padding:48px 0;max-width:520px;text-align:center">
             <div style="width:48px;height:48px;border-radius:8px;background:var(--bg-tertiary,#EEEEEE);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="square"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><path d="M8 11h6"></path></svg>
             </div>
@@ -124,7 +124,7 @@ select option{background:#fff;color:#1A1A1A}
       </div>
 
       <sc-if value="{{ onStep1 }}" hint-placeholder-val="{{ true }}">
-        <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
+        <div style="border-top:1px solid var(--border);padding:32px 0;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
           <h2 style="font-size:20px;font-weight:700;margin:0 0 4px">Project Context</h2>
           <p style="font-size:13px;color:var(--text-secondary);margin:0 0 24px">Describe the product and the task the persona will attempt.</p>
           <div style="margin-bottom:20px">
@@ -154,7 +154,7 @@ select option{background:#fff;color:#1A1A1A}
             <input value="{{ form.protoUrl }}" onChange="{{ set.protoUrl }}" placeholder="&hellip;or paste a prototype link &mdash; Figma, Claude Design, Framer, or a public website" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(5,159,189,0.25)" style="width:100%;box-sizing:border-box;height:38px;margin-top:10px;padding:0 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;color:var(--text);outline:none;transition:all 120ms ease" />
             <sc-if value="{{ errors.protoUrl }}" hint-placeholder-val="{{ false }}"><div style="color:var(--error);font-size:12px;margin-top:6px">{{ errors.protoUrl }}</div></sc-if>
             <sc-if value="{{ uploadError }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;align-items:flex-start;gap:8px;margin-top:10px;background:rgba(247,83,73,0.1);border:1px solid rgba(247,83,73,0.4);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--error)">
+              <div style="display:flex;align-items:flex-start;gap:8px;margin-top:10px;background:rgba(247,83,73,0.1);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--error)">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" style="flex:none;margin-top:2px"><path d="M12 3l10 18H2z"></path><path d="M12 10v4"></path><path d="M12 17.5h.01"></path></svg>
                 <span>{{ uploadError }}</span>
               </div>
@@ -164,7 +164,7 @@ select option{background:#fff;color:#1A1A1A}
               <p style="font-size:12px;color:var(--text-secondary);margin:10px 0 0">No designs handy? <button onClick="{{ useSampleShots }}" style="background:none;border:none;padding:0;color:var(--primary);font-size:12px;font-family:inherit;cursor:pointer">Use sample screens</button></p>
             </sc-if>
             <sc-if value="{{ protoInfo }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;align-items:center;gap:12px;margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:8px">
+              <div style="display:flex;align-items:center;gap:12px;margin-top:12px;padding:10px 12px;border:1px solid var(--border);border-radius:8px">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="square" style="flex:none"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg>
                 <div style="flex:1;min-width:0">
                   <div style="font-size:13px;font-weight:700">Prototype Link &mdash; {{ protoInfo.kind }}</div>
@@ -175,7 +175,7 @@ select option{background:#fff;color:#1A1A1A}
               </div>
             </sc-if>
             <sc-if value="{{ videoCard }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;align-items:center;gap:12px;margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:8px">
+              <div style="display:flex;align-items:center;gap:12px;margin-top:12px;padding:10px 12px;border:1px solid var(--border);border-radius:8px">
                 <span style="display:flex;flex:none">{{ videoCard.thumbEl }}</span>
                 <div style="flex:1;min-width:0">
                   <div style="font-size:13px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ videoCard.name }}</div>
@@ -186,10 +186,10 @@ select option{background:#fff;color:#1A1A1A}
             </sc-if>
             <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
               <sc-for list="{{ shots }}" as="shot" hint-placeholder-count="0">
-                <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border-radius:8px">
+                <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--border);border-radius:8px">
                   <span style="width:22px;flex:none;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);text-align:center">{{ shot.no }}</span>
                   <span style="display:flex;flex:none">{{ shot.thumbRow }}</span>
-                  <input value="{{ shot.name }}" onChange="{{ shot.rename }}" placeholder="Screen name (optional)" style-focus="border-color:var(--primary)" style="flex:1;min-width:80px;height:32px;padding:0 10px;background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;font-size:13px;font-family:inherit;color:var(--text);outline:none" />
+                  <input value="{{ shot.name }}" onChange="{{ shot.rename }}" placeholder="Screen name (optional)" style-focus="border-color:var(--primary)" style="flex:1;min-width:80px;height:32px;padding:0 10px;background:#fff;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;color:var(--text);outline:none" />
                   <div style="display:flex;gap:4px;flex:none">
                     <button onClick="{{ shot.up }}" title="Move up" style-hover="background:rgba(26,26,26,0.1)" style="width:28px;height:28px;border:none;background:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:{{ shot.upOp }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="1.5" stroke-linecap="square"><path d="M18 15l-6-6-6 6"></path></svg></button>
                     <button onClick="{{ shot.down }}" title="Move down" style-hover="background:rgba(26,26,26,0.1)" style="width:28px;height:28px;border:none;background:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:{{ shot.downOp }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="1.5" stroke-linecap="square"><path d="M6 9l6 6 6-6"></path></svg></button>
@@ -203,7 +203,7 @@ select option{background:#fff;color:#1A1A1A}
       </sc-if>
 
       <sc-if value="{{ onStep2 }}" hint-placeholder-val="{{ false }}">
-        <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
+        <div style="border-top:1px solid var(--border);padding:32px 0;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
           <h2 style="font-size:20px;font-weight:700;margin:0 0 4px">Persona and Review Setup</h2>
           <p style="font-size:13px;color:var(--text-secondary);margin:0 0 20px">Who is going through this journey, and what should the review look for?</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:24px">
@@ -280,14 +280,14 @@ select option{background:#fff;color:#1A1A1A}
 
       <sc-if value="{{ onStep3 }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;flex-direction:column;gap:12px;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
-          <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:20px 24px">
+          <div style="border-top:1px solid var(--border);padding:24px 0">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px">
               <h3 style="font-size:14px;font-weight:700;margin:0">Project</h3>
               <button onClick="{{ goEdit1 }}" style="background:none;border:none;padding:0;color:var(--primary);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Edit</button>
             </div>
             <div style="font-size:18px;font-weight:700;margin-bottom:6px">{{ form.projectName }}</div>
             <p style="font-size:13px;color:var(--text-secondary);line-height:1.5;margin:0 0 12px">{{ form.description }}</p>
-            <div style="background:var(--bg);border-radius:8px;padding:12px 14px">
+            <div style="padding:0">
               <div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:4px">USER TASK</div>
               <div style="font-size:13px;line-height:1.5">{{ form.task }}</div>
             </div>
@@ -295,7 +295,7 @@ select option{background:#fff;color:#1A1A1A}
               <div style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:var(--text-secondary)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg><span>{{ protoInfo.kind }} &mdash; <span style="font-family:var(--font-mono)">{{ protoInfo.host }}</span></span></div>
             </sc-if>
           </div>
-          <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:20px 24px">
+          <div style="border-top:1px solid var(--border);padding:24px 0">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px">
               <h3 style="font-size:14px;font-weight:700;margin:0">Design &mdash; {{ designSummary }}</h3>
               <button onClick="{{ goEdit1 }}" style="background:none;border:none;padding:0;color:var(--primary);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Edit</button>
@@ -315,7 +315,7 @@ select option{background:#fff;color:#1A1A1A}
               </sc-for>
             </div>
           </div>
-          <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:20px 24px">
+          <div style="border-top:1px solid var(--border);padding:24px 0">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px">
               <h3 style="font-size:14px;font-weight:700;margin:0">Persona</h3>
               <button onClick="{{ goEdit2 }}" style="background:none;border:none;padding:0;color:var(--primary);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Edit</button>
@@ -327,7 +327,7 @@ select option{background:#fff;color:#1A1A1A}
               <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">DOMAIN KNOWLEDGE</div><div style="font-size:13px;margin-top:2px">{{ form.domain }}</div></div>
               <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">TECH PROFICIENCY</div><div style="font-size:13px;margin-top:2px">{{ form.tech }}</div></div>
             </div>
-            <div style="background:var(--bg);border-radius:8px;padding:12px 14px">
+            <div style="padding:0">
               <div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:4px">PRIMARY GOAL</div>
               <div style="font-size:13px;line-height:1.5">{{ form.goal }}</div>
             </div>
@@ -335,7 +335,7 @@ select option{background:#fff;color:#1A1A1A}
               <div style="font-size:12px;color:var(--text-secondary);margin-top:10px">Accessibility: {{ form.accessibility }}</div>
             </sc-if>
           </div>
-          <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:20px 24px">
+          <div style="border-top:1px solid var(--border);padding:24px 0">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px">
               <h3 style="font-size:14px;font-weight:700;margin:0">Review Setup</h3>
               <button onClick="{{ goEdit2 }}" style="background:none;border:none;padding:0;color:var(--primary);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Edit</button>
@@ -371,7 +371,7 @@ select option{background:#fff;color:#1A1A1A}
 
   <sc-if value="{{ isAnalyzing }}" hint-placeholder-val="{{ false }}">
     <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px 24px">
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:40px 44px;width:420px;max-width:100%;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
+      <div style="padding:40px 0;width:420px;max-width:100%;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
         <div style="width:36px;height:36px;border-radius:50%;border:3px solid var(--border);border-top-color:var(--primary);animation:spin 0.9s linear infinite;margin:0 auto 20px"></div>
         <h2 style="font-size:20px;font-weight:700;text-align:center;margin:0 0 4px">Running Review</h2>
         <p style="font-size:12px;color:var(--text-secondary);text-align:center;margin:0 0 24px">{{ form.projectName }}</p>
@@ -393,7 +393,7 @@ select option{background:#fff;color:#1A1A1A}
 
   <sc-if value="{{ isFailed }}" hint-placeholder-val="{{ false }}">
     <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px 24px">
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:44px;max-width:440px;text-align:center;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
+      <div style="padding:44px 0;max-width:440px;text-align:center;animation:fadeUp 420ms cubic-bezier(0,0,.2,1)">
         <div style="width:48px;height:48px;border-radius:8px;background:rgba(247,83,73,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--error)" stroke-width="1.5" stroke-linecap="square"><path d="M12 3l10 18H2z"></path><path d="M12 10v4"></path><path d="M12 17.5h.01"></path></svg>
         </div>
@@ -413,7 +413,7 @@ select option{background:#fff;color:#1A1A1A}
         <button onClick="{{ goHome }}" style-hover="color:var(--text)" style="display:flex;align-items:center;gap:6px;background:none;border:none;padding:0;color:var(--text-secondary);font-size:13px;font-family:inherit;cursor:pointer;transition:color 120ms ease"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M15 18l-6-6 6-6"></path></svg>All Reviews</button>
         <button onClick="{{ downloadPdf }}" style-hover="background:var(--primary-hover)" style="display:flex;align-items:center;gap:7px;background:var(--primary);color:#fff;border:none;height:36px;padding:0 16px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;transition:background 120ms ease"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>Download PDF</button>
       </div>
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+      <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:8px">UX REVIEW REPORT</div>
         <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.03em;margin:0 0 20px;line-height:1.2">{{ r.project }}</h1>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px 24px">
@@ -457,7 +457,7 @@ select option{background:#fff;color:#1A1A1A}
         </div>
       </div>
 
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+      <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Executive Summary</h2>
         <sc-if value="{{ keyTakeaway }}" hint-placeholder-val="{{ false }}">
           <div style="font-size:24px;font-weight:400;letter-spacing:-0.02em;line-height:1.35;margin:4px 0 18px;max-width:56ch"><span style="color:var(--primary)">&ldquo;</span>&#8201;{{ keyTakeaway }}</div>
@@ -477,18 +477,18 @@ select option{background:#fff;color:#1A1A1A}
             </div>
           </div>
         </div>
-        <div style="background:var(--bg);border-radius:8px;padding:12px 14px">
+        <div style="padding:0">
           <div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:4px">LIKELY TASK OUTCOME</div>
           <div style="font-size:13px;line-height:1.5">{{ r.taskOutcome }}</div>
         </div>
       </div>
 
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+      <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">User Journey Overview</h2>
         <p style="font-size:12px;color:var(--text-secondary);margin:0 0 20px">How the persona is likely to move through each screen, in order.</p>
         <div style="display:flex;flex-direction:column;gap:12px">
           <sc-for list="{{ journey }}" as="j" hint-placeholder-count="0">
-            <div style="display:flex;gap:16px;padding:16px;background:var(--bg);border-radius:8px;flex-wrap:wrap">
+            <div style="display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--border-subtle,#EEEEEE);flex-wrap:wrap">
               <div style="flex:none;display:flex;gap:14px;align-items:flex-start">
                 <span style="width:24px;flex:none;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);text-align:center;padding-top:4px">{{ j.noFmt }}</span>
                 <span style="display:flex;flex:none">{{ j.thumb }}</span>
@@ -512,7 +512,7 @@ select option{background:#fff;color:#1A1A1A}
         </div>
       </div>
 
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+      <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
           <div style="min-width:220px">
             <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">Prioritized Findings</h2>
@@ -565,7 +565,7 @@ select option{background:#fff;color:#1A1A1A}
               </div>
               <div style="display:flex;flex-direction:column;gap:10px">
                 <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="2">
-                  <div style="background:#fff;border:1px solid rgba(26,26,26,0.12);border-left:3px solid {{ f.sevColor }};border-radius:8px;padding:16px 18px">
+                  <div style="border-left:3px solid {{ f.sevColor }};padding:2px 0 2px 18px">
                     <div style="margin-bottom:16px">
                       <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
                         <span style="font-size:14px;font-weight:700;flex:none">{{ f.id }}</span>
@@ -580,7 +580,7 @@ select option{background:#fff;color:#1A1A1A}
                     </div>
                     <div style="margin-bottom:8px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:3px">VISIBLE EVIDENCE</div><div style="font-size:13px;line-height:1.5">{{ f.evidence }}</div></div>
                     <div style="margin-bottom:10px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:3px">USER IMPACT</div><div style="font-size:13px;line-height:1.5">{{ f.impact }}</div></div>
-                    <div style="background:rgba(5,159,189,0.08);border:1px solid rgba(5,159,189,0.25);border-radius:8px;padding:10px 12px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--theia-blue-6,#036F84);margin-bottom:3px">RECOMMENDATION</div><div style="font-size:13px;line-height:1.5">{{ f.rec }}</div></div>
+                    <div style="background:rgba(5,159,189,0.08);border-radius:8px;padding:10px 12px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--theia-blue-6,#036F84);margin-bottom:3px">RECOMMENDATION</div><div style="font-size:13px;line-height:1.5">{{ f.rec }}</div></div>
                     <div style="font-size:11px;color:var(--text-tertiary,#737373);margin-top:8px">Category: {{ f.category }}</div>
                   </div>
                 </sc-for>
@@ -591,9 +591,9 @@ select option{background:#fff;color:#1A1A1A}
       </div>
 
       <sc-if value="{{ showSynthetic }}" hint-placeholder-val="{{ false }}">
-        <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+        <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
           <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Synthetic-User Observations</h2>
-          <div style="display:flex;align-items:flex-start;gap:9px;background:rgba(255,207,92,0.08);border:1px solid rgba(255,207,92,0.3);border-radius:8px;padding:10px 12px;margin-bottom:20px">
+          <div style="display:flex;align-items:flex-start;gap:9px;background:rgba(255,207,92,0.08);border-radius:8px;padding:10px 12px;margin-bottom:20px">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="1.5" stroke-linecap="square" style="flex:none;margin-top:2px"><path d="M12 3l10 18H2z"></path><path d="M12 10v4"></path><path d="M12 17.5h.01"></path></svg>
             <span style="font-size:12px;line-height:1.5;color:var(--warning)">AI-generated hypotheses from the synthetic persona. Validate with real user research before acting.</span>
           </div>
@@ -607,7 +607,7 @@ select option{background:#fff;color:#1A1A1A}
       </sc-if>
 
       <sc-if value="{{ showHeuristic }}" hint-placeholder-val="{{ false }}">
-        <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+        <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
           <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">UX Heuristic Evaluation</h2>
           <p style="font-size:12px;color:var(--text-secondary);margin:0 0 12px">Assessed against Nielsen&rsquo;s ten usability heuristics.</p>
           <div>
@@ -624,12 +624,12 @@ select option{background:#fff;color:#1A1A1A}
         </div>
       </sc-if>
 
-      <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
+      <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">Recommendations</h2>
         <p style="font-size:12px;color:var(--text-secondary);margin:0 0 16px">Prioritized action list &mdash; start at P0.</p>
         <div style="display:flex;flex-direction:column;gap:10px">
           <sc-for list="{{ recs }}" as="rc" hint-placeholder-count="4">
-            <div style="display:flex;gap:14px;padding:16px;background:var(--bg);border-radius:8px;flex-wrap:wrap">
+            <div style="display:flex;gap:14px;padding:18px 0;border-top:1px solid var(--border-subtle,#EEEEEE);flex-wrap:wrap">
               <span style="flex:none;height:22px;padding:0 9px;border-radius:6px;display:flex;align-items:center;font-family:var(--font-mono);font-size:12px;font-weight:500;background:{{ rc.prioBg }};color:{{ rc.prioColor }}">{{ rc.priority }}</span>
               <div style="flex:1;min-width:240px">
                 <div style="font-size:14px;font-weight:700;margin-bottom:6px">{{ rc.change }}</div>
@@ -642,7 +642,7 @@ select option{background:#fff;color:#1A1A1A}
         </div>
       </div>
 
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin-bottom:24px">
+      <div style="border-top:1px solid var(--border);padding:24px 0;margin-bottom:24px">
         <h2 style="font-size:13px;font-weight:700;margin:0 0 10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.06em">Limitations of This Report</h2>
         <div style="display:flex;flex-direction:column;gap:6px">
           <div style="display:flex;gap:9px;font-size:12px;line-height:1.5;color:var(--text-secondary)"><span style="width:4px;height:4px;border-radius:50%;background:var(--slate-2,#D6D6D6);flex:none;margin-top:6px"></span><span>This report is AI-generated. Findings are hypotheses, not observed user behavior.</span></div>
