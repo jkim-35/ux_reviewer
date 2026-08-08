@@ -423,7 +423,7 @@ select option{background:#fff;color:#1A1A1A}
           <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">METHODS</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rMethods }}</div></div>
         </div>
         <div style="border-top:1px solid var(--border-subtle,#EEEEEE);margin-top:20px;padding-top:20px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
-          <div style="text-align:center;flex:none">
+          <div style="text-align:center;flex:none;order:2">
             <div style="width:120px;height:120px;border-radius:50%;background:conic-gradient({{ scoreColor }} {{ scoreDeg }}deg, var(--bg-tertiary,#EEEEEE) 0deg);display:flex;align-items:center;justify-content:center;margin:0 auto">
               <div style="width:96px;height:96px;border-radius:50%;background:var(--bg-secondary);display:flex;flex-direction:column;align-items:center;justify-content:center">
                 <span style="font-family:var(--font-mono);font-size:32px;font-weight:500;line-height:1;color:{{ scoreColor }}">{{ r.score }}</span>
@@ -460,7 +460,7 @@ select option{background:#fff;color:#1A1A1A}
       <div style="background:var(--bg-secondary);border:1px solid rgba(26,26,26,0.07);border-radius:8px;padding:24px;margin-bottom:16px">
         <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Executive Summary</h2>
         <sc-if value="{{ keyTakeaway }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.3;margin:4px 0 18px;max-width:56ch"><span style="color:var(--primary)">&ldquo;</span>&#8201;{{ keyTakeaway }}</div>
+          <div style="font-size:24px;font-weight:400;letter-spacing:-0.02em;line-height:1.35;margin:4px 0 18px;max-width:56ch"><span style="color:var(--primary)">&ldquo;</span>&#8201;{{ keyTakeaway }}</div>
         </sc-if>
         <p style="font-size:14px;line-height:1.6;margin:0 0 20px;color:var(--text)">{{ r.summary }}</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:16px">
