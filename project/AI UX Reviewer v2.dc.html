@@ -285,7 +285,7 @@ select option{background:#fff;color:#1A1A1A}
               <h3 style="font-size:14px;font-weight:700;margin:0">Project</h3>
               <button onClick="{{ goEdit1 }}" style="background:none;border:none;padding:0;color:var(--primary);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Edit</button>
             </div>
-            <div style="font-size:18px;font-weight:700;margin-bottom:6px">{{ form.projectName }}</div>
+            <div style="font-size:22px;font-weight:700;margin-bottom:6px">{{ form.projectName }}</div>
             <p style="font-size:13px;color:var(--text-secondary);line-height:1.5;margin:0 0 12px">{{ form.description }}</p>
             <div style="padding:0">
               <div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:4px">USER TASK</div>
@@ -416,13 +416,13 @@ select option{background:#fff;color:#1A1A1A}
       <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:8px">UX REVIEW REPORT</div>
         <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.03em;margin:0 0 20px;line-height:1.2">{{ r.project }}</h1>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px 24px">
-          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">PERSONA</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rPersona }}</div></div>
-          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">REVIEW DATE</div><div style="font-family:var(--font-mono);font-size:13px;margin-top:4px">{{ r.date }}</div></div>
-          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">USER TASK</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ r.task }}</div></div>
-          <div><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">METHODS</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rMethods }}</div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border:1px solid var(--border);border-radius:8px">
+          <div style="padding:14px 16px"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">PERSONA</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rPersona }}</div></div>
+          <div style="padding:14px 16px;border-left:1px solid var(--border)"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">REVIEW DATE</div><div style="font-family:var(--font-mono);font-size:13px;margin-top:4px">{{ r.date }}</div></div>
+          <div style="padding:14px 16px;border-left:1px solid var(--border)"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">USER TASK</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ r.task }}</div></div>
+          <div style="padding:14px 16px;border-left:1px solid var(--border)"><div style="font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--text-secondary)">METHODS</div><div style="font-size:13px;margin-top:4px;line-height:1.45">{{ rMethods }}</div></div>
         </div>
-        <div style="border-top:1px solid var(--border-subtle,#EEEEEE);margin-top:20px;padding-top:20px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+        <div style="margin-top:24px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
           <div style="text-align:center;flex:none;order:2">
             <div style="width:120px;height:120px;border-radius:50%;background:conic-gradient({{ scoreColor }} {{ scoreDeg }}deg, var(--bg-tertiary,#EEEEEE) 0deg);display:flex;align-items:center;justify-content:center;margin:0 auto">
               <div style="width:96px;height:96px;border-radius:50%;background:var(--bg-secondary);display:flex;flex-direction:column;align-items:center;justify-content:center">
@@ -458,7 +458,7 @@ select option{background:#fff;color:#1A1A1A}
       </div>
 
       <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
-        <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Executive Summary</h2>
+        <h2 style="font-size:22px;font-weight:700;margin:0 0 12px">Executive Summary</h2>
         <sc-if value="{{ keyTakeaway }}" hint-placeholder-val="{{ false }}">
           <div style="font-size:24px;font-weight:400;letter-spacing:-0.02em;line-height:1.35;margin:4px 0 18px;max-width:56ch"><span style="color:var(--primary)">&ldquo;</span>&#8201;{{ keyTakeaway }}</div>
         </sc-if>
@@ -484,7 +484,7 @@ select option{background:#fff;color:#1A1A1A}
       </div>
 
       <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
-        <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">User Journey Overview</h2>
+        <h2 style="font-size:22px;font-weight:700;margin:0 0 4px">User Journey Overview</h2>
         <p style="font-size:12px;color:var(--text-secondary);margin:0 0 20px">How the persona is likely to move through each screen, in order.</p>
         <div style="display:flex;flex-direction:column;gap:12px">
           <sc-for list="{{ journey }}" as="j" hint-placeholder-count="0">
@@ -515,7 +515,7 @@ select option{background:#fff;color:#1A1A1A}
       <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
           <div style="min-width:220px">
-            <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">Prioritized Findings</h2>
+            <h2 style="font-size:22px;font-weight:700;margin:0 0 4px">Prioritized Findings</h2>
             <p style="font-size:12px;color:var(--text-secondary);margin:0"><span style="font-family:var(--font-mono)">{{ findingCount }}</span> findings across <span style="font-family:var(--font-mono)">{{ shotCount }}</span> screens, grouped by severity.</p>
           </div>
           <div class="no-print" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end">
@@ -592,7 +592,7 @@ select option{background:#fff;color:#1A1A1A}
 
       <sc-if value="{{ showSynthetic }}" hint-placeholder-val="{{ false }}">
         <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
-          <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Synthetic-User Observations</h2>
+          <h2 style="font-size:22px;font-weight:700;margin:0 0 12px">Synthetic-User Observations</h2>
           <div style="display:flex;align-items:flex-start;gap:9px;background:rgba(255,207,92,0.08);border-radius:8px;padding:10px 12px;margin-bottom:20px">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="1.5" stroke-linecap="square" style="flex:none;margin-top:2px"><path d="M12 3l10 18H2z"></path><path d="M12 10v4"></path><path d="M12 17.5h.01"></path></svg>
             <span style="font-size:12px;line-height:1.5;color:var(--warning)">AI-generated hypotheses from the synthetic persona. Validate with real user research before acting.</span>
@@ -608,7 +608,7 @@ select option{background:#fff;color:#1A1A1A}
 
       <sc-if value="{{ showHeuristic }}" hint-placeholder-val="{{ false }}">
         <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
-          <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">UX Heuristic Evaluation</h2>
+          <h2 style="font-size:22px;font-weight:700;margin:0 0 4px">UX Heuristic Evaluation</h2>
           <p style="font-size:12px;color:var(--text-secondary);margin:0 0 12px">Assessed against Nielsen&rsquo;s ten usability heuristics.</p>
           <div>
             <sc-for list="{{ heurRows }}" as="h" hint-placeholder-count="6">
@@ -625,7 +625,7 @@ select option{background:#fff;color:#1A1A1A}
       </sc-if>
 
       <div style="border-top:1px solid var(--border);padding:32px 0;margin-bottom:16px">
-        <h2 style="font-size:18px;font-weight:700;margin:0 0 4px">Recommendations</h2>
+        <h2 style="font-size:22px;font-weight:700;margin:0 0 4px">Recommendations</h2>
         <p style="font-size:12px;color:var(--text-secondary);margin:0 0 16px">Prioritized action list &mdash; start at P0.</p>
         <div style="display:flex;flex-direction:column;gap:10px">
           <sc-for list="{{ recs }}" as="rc" hint-placeholder-count="4">
